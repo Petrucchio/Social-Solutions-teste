@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Social_solution_teste.Models.Imovel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Cadastrar Imovel</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_de_negocio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor_imovel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_de_negocio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor_imovel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
